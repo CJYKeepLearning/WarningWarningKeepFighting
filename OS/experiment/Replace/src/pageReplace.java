@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class pageReplace {
     static int[] page;
     static int[] array;
+    static int result=0;
     public static  void main(String args[]){
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入页框数量");
@@ -26,6 +27,7 @@ public class pageReplace {
                 if (search(array[i])){
                     System.out.println(array[i]+"：命中");
                 }else {
+                    result++;
                     System.out.println(array[i]+"：缺页");
                     switch (choose){
                         case 1:
@@ -37,6 +39,7 @@ public class pageReplace {
                 }
             }
         }
+        System.out.println("共缺页:"+result+"次！");
     }
     //OPT算法
     private static void replaceOPT() {
@@ -44,6 +47,7 @@ public class pageReplace {
             if (search(array[i])){
                 System.out.println(array[i]+"：命中");
             }else {
+                result++;
                 System.out.println(array[i]+"：缺页");
                 LackOPT(array[i],i);
             }
